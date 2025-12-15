@@ -1,0 +1,12 @@
+name: 發佈
+on: 
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: [self-hosted, windows, x64]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Deploy
+        run: |
+          robocopy . C:\inetpub\wwwroot\gitflow-testing index.html
